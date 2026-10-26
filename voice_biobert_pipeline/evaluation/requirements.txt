@@ -1,0 +1,5 @@
+kagglehub>=0.3
+jiwer>=3.0
+pandas>=2.0
+praat-textgrids>=1.4
+openpyxl>=3.1

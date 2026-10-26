@@ -1,0 +1,44 @@
+Disease Diagnosis Dataset
+Source: https://huggingface.co/datasets/sajjadhadi/disease-diagnosis-dataset
+Local folder: C:\Year 3 Sem 3\Thesis\Denoise + Whisper\datasets\disease-diagnosis-dataset
+
+Raw Hugging Face files:
+- README.md
+- data/train-00000-of-00001.parquet
+- data/test-00000-of-00001.parquet
+
+Cleaned files for training:
+- disease_diagnosis_train_cleaned.csv
+- disease_diagnosis_test_cleaned.csv
+- disease_diagnosis_train_cleaned.parquet
+- disease_diagnosis_test_cleaned.parquet
+- disease_diagnosis_all_cleaned.csv
+
+Raw CSV copies:
+- disease_diagnosis_train.csv
+- disease_diagnosis_test.csv
+- disease_diagnosis_sample_1000.csv
+
+Train rows: 469,195
+Test rows: 24,695
+Total rows: 493,890
+Unique diagnosis labels overall: 773
+Cleaned schema: diagnosis, text_cleaned, text_original, split (combined file only)
+
+Leakage phrase checks in text_cleaned:
+- The patient may have: 0
+- what disease may the patient have: 0
+- Patient reported these symptoms: 0
+- Empty cleaned rows: 0
+
+Top 10 labels overall:
+- cystitis: 2,438
+- nose disorder: 2,436
+- vulvodynia: 2,436
+- complex regional pain syndrome: 2,434
+- spondylosis: 2,432
+- conjunctivitis due to allergy: 2,430
+- esophagitis: 2,430
+- peripheral nerve disorder: 2,430
+- vaginal cyst: 2,430
+- hypoglycemia: 2,430

@@ -1,0 +1,4 @@
+Model,Accuracy gap from best,Macro Precision gap from best,Macro Recall gap from best,Macro F1 gap from best,Weighted Precision gap from best,Weighted Recall gap from best,Weighted F1 gap from best
+BioBERT,0.0,-2.0649,-1.2392,-1.6611,0.0,0.0,0.0
+Fine-tuned BERT,-0.0162,-1.914,-0.6513,-1.311,-0.0206,-0.0162,-0.0114
+TF-IDF + Logistic Regression,-0.17,0.0,0.0,0.0,-0.311,-0.17,-0.2186

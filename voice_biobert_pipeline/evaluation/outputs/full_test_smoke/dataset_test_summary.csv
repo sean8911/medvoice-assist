@@ -1,0 +1,9 @@
+dataset,snr_label,audio_pipeline,samples,mean_wer,mean_cer,biobert_stability_rate,low_score_rate,mapped_disease_accuracy
+medical_speech_intent,10_dB,preprocessed,1,0.0455,0.0102,0.0,1.0,
+medical_speech_intent,10_dB,raw,1,0.0455,0.0102,0.0,1.0,
+medical_speech_intent,clean,preprocessed,1,0.0455,0.0102,0.0,1.0,
+medical_speech_intent,clean,raw,1,0.0455,0.0102,0.0,1.0,
+primock57,10_dB,preprocessed,1,0.38,0.2121,1.0,1.0,0.0
+primock57,10_dB,raw,1,0.38,0.2121,1.0,1.0,0.0
+primock57,clean,preprocessed,1,0.14,0.039,1.0,1.0,0.0
+primock57,clean,raw,1,0.18,0.0519,1.0,1.0,0.0

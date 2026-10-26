@@ -1,0 +1,11 @@
+Source,SNR (dB),Pipeline,Transcript,WER,CER,Predicted Disease,Confidence,Prediction Status
+Real recording,Original,Baseline (raw),I have a haydack every day in the morning.,11.11,9.52,Chicken pox,7.78,Low confidence - seek professional medical advice
+Real recording,Original,Improved (denoised),I have a headache every day in the morning.,0.0,0.0,Hypertension,14.76,Low confidence - seek professional medical advice
+Synthetic Gaussian noise,20,Baseline (raw),I have a headache every day in the morning.,0.0,0.0,Hypertension,14.76,Low confidence - seek professional medical advice
+Synthetic Gaussian noise,20,Improved (denoised),I have a headache every day in the morning.,0.0,0.0,Hypertension,14.76,Low confidence - seek professional medical advice
+Synthetic Gaussian noise,10,Baseline (raw),I have a headache every day in the morning.,0.0,0.0,Hypertension,14.76,Low confidence - seek professional medical advice
+Synthetic Gaussian noise,10,Improved (denoised),I have a headache every day in the morning.,0.0,0.0,Hypertension,14.76,Low confidence - seek professional medical advice
+Synthetic Gaussian noise,5,Baseline (raw),I have a headache every day in the morning.,0.0,0.0,Hypertension,14.76,Low confidence - seek professional medical advice
+Synthetic Gaussian noise,5,Improved (denoised),I have a headache every day in the morning.,0.0,0.0,Hypertension,14.76,Low confidence - seek professional medical advice
+Synthetic Gaussian noise,0,Baseline (raw),I have a headache every day.,33.33,35.71,Hypertension,16.62,Low confidence - seek professional medical advice
+Synthetic Gaussian noise,0,Improved (denoised),I have a headache every day in a minute.,22.22,19.05,Hypertension,16.62,Low confidence - seek professional medical advice

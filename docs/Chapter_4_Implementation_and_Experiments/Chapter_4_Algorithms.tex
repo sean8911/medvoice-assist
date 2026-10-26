@@ -1,0 +1,388 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\renewcommand{\thealgorithm}{4.\arabic{algorithm}}
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\title{Chapter 4 Implementation Algorithms}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+These algorithms abstract the retained implementation. They do not introduce
+duplicate-aware repartitioning or new model training. Algorithm 4.12 describes
+the legacy speech pilot, not the current complete chatbot evaluation.
+\begin{algorithm}[H]
+\caption{Load prepared text data and retain the experiment partitions}
+\label{alg:data}
+\begin{algorithmic}[1]
+\Require Dataset mode $d$, source files, seed $s=42$
+\Ensure Training frame $T$, test frame $E$, class mapping $L$
+\If{$d=\text{Symptom2Disease}$}
+  \State Read the CSV; exclude unnamed index columns
+  \State Keep text and label; drop missing or empty values; strip whitespace
+  \State Assign a source row identifier to each usable record
+  \State $(T,E)\gets\Call{RandomSplit}{\text{records},0.80,0.20,s}$
+  \State Do not stratify the outer split
+  \State Check the expected 960/240 sizes and disjoint source row IDs
+\Else
+  \State Read the supplied cleaned training and test CSVs separately
+  \For{$F\in\{T,E\}$}
+    \State Check diagnosis and cleaned-text columns exist
+    \State Drop missing entries; convert to strings; strip whitespace
+    \State Remove empty text or labels; reset row indices
+  \EndFor
+  \State Retain the supplied partition assignments
+\EndIf
+\State $L\gets\Call{EncodeLabelVocabulary}{\text{labels in }T\text{ and }E}$
+\State Map each target label to its integer class identifier
+\State Report row counts and class count
+\State \Return $(T,E,L)$
+\end{algorithmic}
+\end{algorithm}
+No text deduplication or group-aware splitting occurs in this procedure.
+The preliminary BioBERT internal validation step is described separately in the chapter.
+
+\newpage
+\begin{algorithm}[H]
+\caption{Train and evaluate TF-IDF with Logistic Regression}
+\label{alg:tfidf}
+\begin{algorithmic}[1]
+\Require Frames $T,E$, class mapping $L$, TF-IDF and solver settings $\theta$
+\Ensure Fitted pipeline $M$, predictions $\hat y$, training duration $t$
+\State Configure word unigrams and bigrams
+\State Enable lowercasing, English stop words and sublinear term frequency
+\State Set feature cap and minimum document frequency from $\theta$
+\State Configure Logistic Regression solver, iteration limit and seed
+\State $M\gets\Call{Pipeline}{\text{TF-IDF},\text{Logistic Regression}}$
+\State Start the training timer
+\State Fit $M$ on the text and encoded labels in $T$
+\State $t\gets$ elapsed training duration
+\State $\hat y\gets\Call{Predict}{M,E.\text{text}}$
+\State Calculate accuracy, macro and weighted metrics
+\State Export the class report using the documented label convention
+\State Save the fitted vectoriser and classifier together with joblib
+\State \Return $(M,\hat y,t)$
+\end{algorithmic}
+\end{algorithm}
+The vectoriser is fitted on training records only. The preliminary feature cap
+is 20,000; the expanded cap is 50,000. The expanded implementation uses SAGA.
+
+\newpage
+\begin{algorithm}[H]
+\caption{Fine-tune an expanded-dataset transformer classifier}
+\label{alg:transformer}
+\begin{algorithmic}[1]
+\Require Checkpoint $q$, prepared frames $T,E$, labels $L$, settings $\theta$
+\Ensure Saved classifier, tokeniser, predictions and trainer history
+\State Load the tokeniser associated with $q$
+\State Construct label-to-ID and ID-to-label mappings from $L$
+\State Load the sequence-classification model with $|L|$ output classes
+\State Initialise the task-specific classification head for this label space
+\For{$F\in\{T,E\}$}
+  \State Tokenise $F.\text{text}$ using truncation at 128 tokens
+  \State Retain encoded targets and remove the raw text field
+\EndFor
+\State Configure learning rate, batch sizes, epochs, weight decay and seed
+\State Configure padding through the tokeniser's data collator
+\State Configure mixed precision only as supported by the runtime settings
+\State Construct Trainer with $T$ as the training dataset
+\State Start timer and run the configured training operation
+\State Record runtime and any checkpoint-resumption provenance
+\State $Z\gets\Call{TrainerPredict}{E}$
+\State $\hat y_i\gets\arg\max_k Z_{ik}$ for each test record $i$
+\State Save model weights, tokeniser, label mapping and trainer history
+\State Export predictions and documented evaluation metrics
+\State \Return saved artifacts and $\hat y$
+\end{algorithmic}
+\end{algorithm}
+This algorithm represents the common expanded training structure. The preliminary
+BioBERT notebook selects an epoch on 864/96 records and then trains a fresh model
+on all 960 outer-training records. Saved runs may use different checkpoint cadences.
+
+\newpage
+\begin{algorithm}[H]
+\caption{Enhance a decoded mono 16 kHz waveform}
+\label{alg:audio}
+\begin{algorithmic}[1]
+\Require Decoded waveform $x$, sample rate $f_s=16{,}000$
+\Ensure Enhanced waveform $x'$, preprocessing metadata $A$
+\State Replace non-finite values; reject empty or effectively silent input
+\State Record original sample count and duration
+\State $\mu\gets\Call{Mean}{x}$
+\State $x_c\gets x-\mu$
+\State $(x_t,b)\gets\Call{TrimBoundaries}{x_c,30\text{ dB}}$
+\If{$x_t$ is empty}
+  \State $x_t\gets x_c$; retain the original centred interval
+\EndIf
+\State $x_d\gets\Call{StationaryNoiseReduce}{x_t,f_s,0.5}$
+\State Replace any non-finite values in $x_d$
+\State $a\gets\max|x_d|$
+\If{$a>0$}
+  \State $x_d\gets0.95x_d/a$
+\EndIf
+\State $x'\gets\Call{ValidateFloat32Audio}{x_d}$
+\State $A\gets$ durations, removed offset, trim interval and enhancement settings
+\State \Return $(x',A)$
+\end{algorithmic}
+\end{algorithm}
+Decoding and resampling occur before this function. The original-audio comparison
+still uses mono 16 kHz audio; it skips enhancement, not format standardisation.
+
+\newpage
+\begin{algorithm}[H]
+\caption{Transcribe audio with the reusable Whisper runtime}
+\label{alg:whisper}
+\begin{algorithmic}[1]
+\Require Waveform $x$, language English, chunk length 25 s, selected device
+\Ensure Automatic unedited transcript $h$
+\State Load and cache Whisper processor and model if not already loaded
+\State Set model to evaluation mode
+\State Split $x$ into consecutive chunks of at most $25f_s$ samples
+\State $H\gets$ empty ordered list
+\For{each chunk $c$ in recording order}
+  \State Compute acoustic features and an attention mask with the processor
+  \State Move available input tensors to the selected device
+  \State Generate transcription tokens in inference-only mode
+  \State Decode tokens, excluding special tokens; strip outer whitespace
+  \If{decoded chunk text is non-empty}
+    \State Append the chunk text to $H$
+  \EndIf
+\EndFor
+\State $h\gets\Call{JoinInOrder}{H}$
+\If{$h$ is empty}
+  \State Raise an empty-transcription error
+\EndIf
+\State \Return $h$ for transcript confirmation or automatic evaluation
+\end{algorithmic}
+\end{algorithm}
+The chunks do not overlap. Human transcript correction is a separate assistance
+condition and must not replace the raw hypothesis in automatic WER/CER scoring.
+
+\newpage
+\begin{algorithm}[H]
+\caption{Extract canonical symptoms and their assertion states}
+\label{alg:extract}
+\begin{algorithmic}[1]
+\Require Narrative $n$, eligible canonical phrases and aliases $V$
+\Ensure Grouped evidence $E$, current-symptom text $b$
+\State $u\gets\Call{MatchingNormalisation}{n}$
+\State $C\gets$ all boundary-aware phrase matches in $u$
+\State Sort $C$ by start position and descending matched length
+\State $M\gets$ empty accepted list; $O\gets$ empty occupied intervals
+\For{candidate $c$ in $C$}
+  \If{$c$ does not overlap an interval in $O$}
+    \State Accept $c$ into $M$ and add its interval to $O$
+  \EndIf
+\EndFor
+\State Sort $M$ by textual position
+\For{mention $m$ in $M$}
+  \State Inspect bounded context and positive-negation idiom exceptions
+  \State Determine other-subject, historical, negated, uncertain or present status
+  \State Record canonical phrase, matched text, status, reason and offsets
+  \State Update the latest assertion for $m$'s canonical symptom
+\EndFor
+\State Group retained canonical symptoms by their latest assertion status
+\State $b\gets$ comma-separated distinct present symptoms in first-mention order
+\State \Return $(E,b)$
+\end{algorithmic}
+\end{algorithm}
+No disease label is inferred here. Offsets refer to the normalised matching text.
+The latest mention determines status, but arbitrary implicit corrections are not parsed.
+
+\newpage
+\begin{algorithm}[H]
+\caption{Choose urgency by the highest-priority matching rule}
+\label{alg:urgency}
+\begin{algorithmic}[1]
+\Require Narrative $n$, extracted evidence $E$, configured urgency rules $R$
+\Ensure Urgency level $u$, supporting rules and classification-bypass decision
+\State Normalise the narrative for rule matching
+\State Collect asserted current symptoms from $E$
+\State Collect eligible raw warning-phrase hits with assertion checks
+\State Exclude clearly negated, historical and other-subject phrase hits
+\State Allow specified uncertain raw warning phrases to remain actionable
+\State $M\gets$ empty matched-rule list
+\For{rule $r$ in $R$}
+  \If{the implemented combination of evidence satisfies $r$}
+    \State Append $r$'s identifier, urgency level and supporting evidence to $M$
+  \EndIf
+\EndFor
+\State Rank levels as emergency $>$ urgent $>$ routine
+\State $u\gets$ highest level in $M$, or routine when $M$ is empty
+\State $bypass\gets(u\in\{\text{emergency},\text{urgent}\})$
+\State Select the configured action message for $u$
+\State \Return $(u,bypass,M,\text{action message})$
+\end{algorithmic}
+\end{algorithm}
+Routine means no configured warning rule matched; it is not a clinical declaration
+of safety. Emergency and urgent outcomes both take priority over disease prediction.
+
+\newpage
+\begin{algorithm}[H]
+\caption{Run the trained BioBERT model and apply score display gates}
+\label{alg:classify}
+\begin{algorithmic}[1]
+\Require Canonical current-symptom text $b$, local checkpoint $q$, thresholds
+\Ensure Ranked model outputs $P$, status $s$, display flag $d$
+\State Validate checkpoint files, 773 labels and classification-head tensors
+\State Load and cache the trained model and tokeniser from $q$ locally
+\State Tokenise $b$ with truncation at 128 tokens
+\State Run the model in evaluation and inference-only mode
+\State $p\gets\Call{Softmax}{\text{model logits}}$
+\State $P\gets$ three highest scores and their checkpoint label names
+\State Round recorded scores to six decimal places
+\State $m\gets P_1.\text{score}-P_2.\text{score}$; record the rounded margin
+\If{$P_1.\text{score}<0.50$}
+  \State $s\gets\text{low score}$
+\ElsIf{$m<0.10$}
+  \State $s\gets\text{ambiguous prediction}$
+\Else
+  \State $s\gets\text{prediction available}$
+\EndIf
+\State $d\gets(s=\text{prediction available})$
+\State \Return $(P,s,d)$
+\end{algorithmic}
+\end{algorithm}
+The threshold values are configurable prototype heuristics, not calibrated disease
+probabilities. The orchestration stage can still withhold an otherwise available result.
+
+\newpage
+\begin{algorithm}[H]
+\caption{Orchestrate extraction, urgency, clarification and classification}
+\label{alg:pipeline}
+\begin{algorithmic}[1]
+\Require Confirmed narrative $n$, extractor, rules and model runtime
+\Ensure Analysis object with response, evidence, decisions and timings
+\State Reject empty input and create a normalised text copy
+\State $(E,b)\gets\Call{ExtractSymptoms}{n}$
+\State $U\gets\Call{DetectUrgency}{n,E}$
+\State $Q\gets\Call{GenerateClarification}{n,E,U,\text{no classification},1}$
+\State $ran\gets\text{false}$
+\If{$U.\text{bypass}$}
+  \State $C\gets$ skipped classification with the urgency reason
+\ElsIf{$Q.\text{pause classification}$}
+  \State $C\gets$ skipped classification with the missing/uncertain symptom reason
+\ElsIf{$b$ is non-empty}
+  \State $ran\gets\text{true}$; $C\gets\Call{ClassifyWithGates}{b}$
+  \State $Q\gets\Call{GenerateClarification}{n,E,U,C,1}$
+  \If{$Q$ requires withholding}
+    \State Hide the prediction and record low-score or ambiguity clarification status
+  \EndIf
+\Else
+  \State $C\gets$ skipped classification with no-current-symptom reason
+\EndIf
+\State Store whether model inference actually occurred
+\State $A\gets\Call{GenerateRuleResponse}{n,E,U,Q,C}$
+\State Assemble request ID, inputs, evidence, stage trace and measured timings
+\State \Return the analysis object including $A$
+\end{algorithmic}
+\end{algorithm}
+The normalised text copy is retained for inspection. Extraction and urgency use
+the full narrative, while the trained classifier receives the canonical symptom list.
+
+\newpage
+\begin{algorithm}[H]
+\caption{Process one clarification answer without losing the original context}
+\label{alg:followup}
+\begin{algorithmic}[1]
+\Require Original narrative $n$, free-form answer $a$
+\Ensure Updated analysis or a closed-loop non-diagnostic fallback
+\State $n'\gets\Call{Strip}{n}$
+\State $a'\gets\Call{Strip}{a}$
+\State $c\gets\Call{JoinWithSpace}{n',a'}$
+\State $Z\gets\Call{AnalysePipeline}{c}$
+\If{$Z.\text{response type}=\text{clarification}$}
+  \State Preserve the current classification status as the pre-limit status
+  \State Set classification status to clarification-limit-reached
+  \State Hide the disease-class result
+  \State Close clarification; remove questions; record the round-limit reason
+  \State Set the clarification trace stage to limit-reached
+  \State Regenerate the rule-based fallback with the updated decisions
+\EndIf
+\State Retain $n$, $a$ and $c$ as separate conversation fields
+\State Mark the input source as clarification answer
+\State \Return $Z$
+\end{algorithmic}
+\end{algorithm}
+Emergency or urgent evidence in the answer is reconsidered immediately. A reply
+such as no other symptoms does not erase a symptom recognised in the original narrative.
+
+\newpage
+\begin{algorithm}[H]
+\caption{Select deterministic response content from pipeline state}
+\label{alg:response}
+\begin{algorithmic}[1]
+\Require Current symptoms $E$, urgency $U$, clarification $Q$, classification $C$
+\Ensure Structured response with actions, guidance, sources and disclaimer
+\If{$U=\text{emergency}$}
+  \State Select emergency action; hide class and omit routine self-care
+\ElsIf{$U=\text{urgent}$}
+  \State Select prompt-assessment action; hide class and omit routine self-care
+\ElsIf{$Q$ requires clarification or withholding}
+  \State Select clarification wording and the free-form question; hide the class
+\ElsIf{$C.\text{display prediction}=\text{true}$}
+  \State Describe the accepted output as a research dataset class, not a diagnosis
+  \State Match symptom-level guidance using current symptoms in $E$
+\Else
+  \State Select a professional-assessment fallback without a disease label
+  \If{the clarification round limit was reached}
+    \State Explain insufficient symptoms or an inferred but withheld result
+    \State Match any supported symptom-level guidance using $E$
+  \EndIf
+\EndIf
+\State Deduplicate actions, guidance messages and source identifiers
+\State Include applicable safety-net wording and the research disclaimer
+\State Assemble structured fields and their text representation
+\State \Return the response
+\end{algorithmic}
+\end{algorithm}
+Guidance is symptom-based and does not implement treatment for 773 disease
+classes. Source-linked content still requires clinical review of its applicability.
+
+\newpage
+\begin{algorithm}[H]
+\caption{Evaluate the legacy paired speech and noise experiment}
+\label{alg:legacy-eval}
+\begin{algorithmic}[1]
+\Require Selected recordings $S$, references, one noise file, fixed models, seed
+\Ensure Per-condition records and descriptive summaries
+\State Load the fixed Whisper recogniser and trained BioBERT classifier
+\For{sample $s$ in $S$}
+  \State Obtain a direct BioBERT prediction from the reference transcript
+  \For{condition $c\in\{\text{clean},20,10,5,0\text{ dB}\}$}
+    \State Create the condition waveform using a reproducible noise segment
+    \For{route $r\in\{\text{original},\text{enhanced}\}$}
+      \State Apply enhancement only when $r=\text{enhanced}$
+      \State $h\gets\Call{WhisperTranscribe}{\text{route waveform}}$
+      \State Normalise reference and $h$ with the same error-rate procedure
+      \If{the normalised hypothesis is non-empty}
+        \State Compute WER and CER; classify $h$ directly with BioBERT
+      \Else
+        \State Record WER and CER as 1.0 and an empty disease prediction
+      \EndIf
+      \State Record prediction agreement with the reference-text prediction
+      \State Record disease correctness only if an appropriate mapped label exists
+      \State Record score, low-score flag and ranked classes
+      \State Save the accumulated per-condition records incrementally
+    \EndFor
+  \EndFor
+\EndFor
+\State Group by dataset, condition and route; calculate descriptive means
+\State \Return records and summaries
+\end{algorithmic}
+\end{algorithm}
+This implemented pilot contains six selected recordings and sixty repeated
+condition/route observations. It bypasses the current extractor and conversation
+controller, so it is not the completed end-to-end evaluation of the latest prototype.
+\end{document}

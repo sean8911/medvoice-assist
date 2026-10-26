@@ -1,0 +1,36 @@
+{
+  "repository": "sean8911/medvoice-assist",
+  "release_tag": "initial-commit",
+  "prepared_on": "2026-10-26",
+  "model": "Final trained 773-class BioBERT",
+  "source_directory": "3 Models After Training/outputs/models/biobert",
+  "extraction_destination": "3 Models After Training/outputs/models",
+  "release_url": "https://github.com/sean8911/medvoice-assist/releases/tag/initial-commit",
+  "archive": {
+    "file": "biobert-final.zip",
+    "bytes": 405740423,
+    "sha256": "6bc0831c25500ca80816e4cac2f3e3ff64bb088a4a880cb06a569c7be553ca38"
+  },
+  "files": [
+    {
+      "file": "config.json",
+      "bytes": 50476,
+      "sha256": "a522943ab1e2e54814d64cd766fb25232e3bea54a1061bcb7d820ac05eaa29b4"
+    },
+    {
+      "file": "model.safetensors",
+      "bytes": 435642364,
+      "sha256": "8daf835c4fd14aae99aa8b0bb543d2a66fc96a68620f1ff5166da2e96e038caa"
+    },
+    {
+      "file": "tokenizer_config.json",
+      "bytes": 486,
+      "sha256": "ffef5b8af31d7b5912227338e472e2b7df7b681f8521c66a3d90c0b7722a343f"
+    },
+    {
+      "file": "tokenizer.json",
+      "bytes": 669020,
+      "sha256": "b29987f74158db79235c350ed863c82ccfc5b1dec654e7cb407997388181a1c6"
+    }
+  ]
+}

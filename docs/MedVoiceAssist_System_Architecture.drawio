@@ -1,0 +1,147 @@
+<mxfile host="app.diagrams.net" agent="Codex" compressed="false">
+  <diagram id="medvoice-system-architecture" name="Overall System Architecture">
+    <mxGraphModel dx="2438" dy="1419" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=26;fontStyle=1;fontColor=#173538;" value="MedVoice Assist: Overall System Architecture" vertex="1">
+          <mxGeometry height="45" width="1200" x="300" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="user" parent="1" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fillColor=#e3f2ed;strokeColor=#245e59;strokeWidth=2;fontFamily=Arial;fontSize=18;fontStyle=1;" value="User input" vertex="1">
+          <mxGeometry height="60" width="240" x="600" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="input-type" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff6df;strokeColor=#8c713d;strokeWidth=1.5;fontFamily=Arial;fontSize=17;" value="Input type?" vertex="1">
+          <mxGeometry height="100" width="220" x="610" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="audio-decode" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eef5ff;strokeColor=#54769a;strokeWidth=1.5;fontFamily=Arial;fontSize=17;spacing=12;" value="Audio decoding&lt;br&gt;and resampling to 16 kHz" vertex="1">
+          <mxGeometry height="64" width="280" x="160" y="228" as="geometry" />
+        </mxCell>
+        <mxCell id="enhancement" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eef5ff;strokeColor=#54769a;strokeWidth=1.5;fontFamily=Arial;fontSize=16;spacing=10;" value="Optional audio enhancement&lt;br&gt;DC-offset removal, silence trimming,&lt;br&gt;noise reduction and normalization" vertex="1">
+          <mxGeometry height="90" width="280" x="160" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="whisper" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eef5ff;strokeColor=#54769a;strokeWidth=1.5;fontFamily=Arial;fontSize=17;" value="Whisper transcription" vertex="1">
+          <mxGeometry height="64" width="280" x="160" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="confirm-transcript" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eef5ff;strokeColor=#54769a;strokeWidth=1.5;fontFamily=Arial;fontSize=17;spacing=12;" value="User transcript confirmation&lt;br&gt;or correction" vertex="1">
+          <mxGeometry height="64" width="280" x="160" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="extract" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#3c5c62;strokeWidth=1.5;fontFamily=Arial;fontSize=17;spacing=10;" value="Text preparation and&lt;br&gt;symptom extraction&lt;br&gt;Present / negated / uncertain" vertex="1">
+          <mxGeometry height="90" width="280" x="580" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="urgency" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff6df;strokeColor=#8c713d;strokeWidth=1.5;fontFamily=Arial;fontSize=17;" value="Urgent or emergency&lt;br&gt;rule matched?" vertex="1">
+          <mxGeometry height="130" width="240" x="600" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="sufficient" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff6df;strokeColor=#8c713d;strokeWidth=1.5;fontFamily=Arial;fontSize=17;" value="Sufficient symptom&lt;br&gt;information?" vertex="1">
+          <mxGeometry height="130" width="240" x="600" y="1125" as="geometry" />
+        </mxCell>
+        <mxCell id="biobert" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e3f2ed;strokeColor=#245e59;strokeWidth=1.5;fontFamily=Arial;fontSize=17;spacing=10;" value="Trained BioBERT classification&lt;br&gt;773 disease classes" vertex="1">
+          <mxGeometry height="80" width="280" x="580" y="1330" as="geometry" />
+        </mxCell>
+        <mxCell id="score-check" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff6df;strokeColor=#8c713d;strokeWidth=1.5;fontFamily=Arial;fontSize=17;" value="Score and ambiguity&lt;br&gt;checks passed?" vertex="1">
+          <mxGeometry height="130" width="240" x="600" y="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="clarification-available" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff6df;strokeColor=#8c713d;strokeWidth=1.5;fontFamily=Arial;fontSize=17;" value="Clarification round&lt;br&gt;available?" vertex="1">
+          <mxGeometry height="130" width="240" x="1050" y="1125" as="geometry" />
+        </mxCell>
+        <mxCell id="question" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eef5ff;strokeColor=#54769a;strokeWidth=1.5;fontFamily=Arial;fontSize=17;" value="Ask a follow-up question" vertex="1">
+          <mxGeometry height="64" width="280" x="1030" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="combine-answer" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eef5ff;strokeColor=#54769a;strokeWidth=1.5;fontFamily=Arial;fontSize=17;spacing=10;" value="Combine answer with&lt;br&gt;original narrative&lt;br&gt;Mark clarification round as used" vertex="1">
+          <mxGeometry height="90" width="280" x="1030" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="fallback" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff0ed;strokeColor=#ad655b;strokeWidth=1.5;fontFamily=Arial;fontSize=17;spacing=10;" value="Withhold disease prediction&lt;br&gt;and select professional-&lt;br&gt;assessment fallback" vertex="1">
+          <mxGeometry height="90" width="290" x="1400" y="1145" as="geometry" />
+        </mxCell>
+        <mxCell id="response" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e3f2ed;strokeColor=#245e59;strokeWidth=1.5;fontFamily=Arial;fontSize=17;spacing=10;" value="Rule-based response selection&lt;br&gt;Urgency / clarification / guidance / fallback" vertex="1">
+          <mxGeometry height="80" width="320" x="560" y="1690" as="geometry" />
+        </mxCell>
+        <mxCell id="display" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=#e3f2ed;strokeColor=#245e59;strokeWidth=2;fontFamily=Arial;fontSize=18;fontStyle=1;spacing=10;" value="Display response and&lt;br&gt;processing evidence" vertex="1">
+          <mxGeometry height="70" width="280" x="580" y="1810" as="geometry" />
+        </mxCell>
+        <mxCell id="e01" edge="1" parent="1" source="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#3c5c62;strokeWidth=1.5;fontFamily=Arial;fontSize=16;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="input-type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e02" edge="1" parent="1" source="input-type" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#54769a;strokeWidth=1.5;fontFamily=Arial;fontSize=16;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" target="audio-decode" value="Voice">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e03" edge="1" parent="1" source="input-type" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#3c5c62;strokeWidth=1.5;fontFamily=Arial;fontSize=16;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="extract" value="Typed text">
+          <mxGeometry relative="1" x="-0.55" as="geometry" />
+        </mxCell>
+        <mxCell id="e04" edge="1" parent="1" source="audio-decode" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#54769a;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="enhancement">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e05" edge="1" parent="1" source="enhancement" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#54769a;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="whisper">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e06" edge="1" parent="1" source="whisper" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#54769a;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="confirm-transcript">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e07" edge="1" parent="1" source="confirm-transcript" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#54769a;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" target="extract">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="795" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e08" edge="1" parent="1" source="extract" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#3c5c62;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="urgency">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e09" edge="1" parent="1" source="urgency" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#ad655b;strokeWidth=1.5;fontFamily=Arial;fontSize=16;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" target="response" value="Yes: bypass classification">
+          <mxGeometry relative="1" x="-0.45" as="geometry">
+            <mxPoint x="-95" as="offset" />
+            <Array as="points">
+              <mxPoint x="470" y="985" />
+              <mxPoint x="470" y="1730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="urgency" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#3c5c62;strokeWidth=1.5;fontFamily=Arial;fontSize=16;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="sufficient" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="sufficient" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#3c5c62;strokeWidth=1.5;fontFamily=Arial;fontSize=16;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="biobert" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="sufficient" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#3c5c62;strokeWidth=1.5;fontFamily=Arial;fontSize=16;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="clarification-available" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="biobert" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#3c5c62;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="score-check">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="score-check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#3c5c62;strokeWidth=1.5;fontFamily=Arial;fontSize=16;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="response" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="score-check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#3c5c62;strokeWidth=1.5;fontFamily=Arial;fontSize=16;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=1;" target="clarification-available" value="No">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <Array as="points">
+              <mxPoint x="950" y="1545" />
+              <mxPoint x="950" y="1300" />
+              <mxPoint x="1170" y="1300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="clarification-available" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#54769a;strokeWidth=1.5;fontFamily=Arial;fontSize=16;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" target="question" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="question" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#54769a;strokeWidth=1.5;fontFamily=Arial;fontSize=16;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" target="combine-answer" value="User answers">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="combine-answer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#54769a;strokeWidth=1.5;fontFamily=Arial;fontSize=16;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" target="extract" value="Re-run analysis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="clarification-available" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#ad655b;strokeWidth=1.5;fontFamily=Arial;fontSize=16;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="fallback" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="fallback" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#ad655b;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=1;entryY=0.5;" target="response">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1545" y="1730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="response" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#3c5c62;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="display">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

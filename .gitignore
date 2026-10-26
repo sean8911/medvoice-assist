@@ -1,0 +1,80 @@
+# Credentials, private research records and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+service-account*.json
+participant_records/
+consent_records/
+private_research_data/
+
+# Python environments and generated caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.cache/
+
+# Reinstallable frontend dependencies and generated builds
+node_modules/
+dist/
+.vite/
+.pnpm-store/
+
+# Local scratch files, logs and document locks
+/tmp/
+logs/
+*.log
+*.tmp
+~$*
+.DS_Store
+Thumbs.db
+
+# Downloaded training datasets; retain source documentation only
+/datasets/**
+!/datasets/disease-diagnosis-dataset/
+!/datasets/disease-diagnosis-dataset/README.md
+!/datasets/disease-diagnosis-dataset/dataset_summary.txt
+/Symptom2Disease.csv
+**/data/**/*.csv
+**/data/**/*.parquet
+**/data/**/*.jsonl
+/voice_biobert_pipeline/evaluation/datasets/
+
+# Raw recordings and local conversation/transcription records
+*.wav
+*.mp3
+*.m4a
+*.webm
+*.ogg
+*.flac
+*.aac
+/voice_biobert_pipeline/outputs/
+
+# Large trained weights and duplicate training checkpoints
+# The final BioBERT is supplied separately as a private release asset.
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.joblib
+*.pkl
+*.pickle
+checkpoints/
+checkpoint-*/
+
+# Downloaded or generated archives
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tgz

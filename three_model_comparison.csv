@@ -1,0 +1,4 @@
+Rank,Model,Accuracy,Macro Precision,Macro Recall,Macro F1,Weighted Precision,Weighted Recall,Weighted F1
+1,TF-IDF + Logistic Regression,96.67,97.15,96.78,96.7,96.99,96.67,96.54
+2,BioBERT,88.75,90.66,89.0,87.57,91.8,88.75,88.01
+3,Fine-tuned BERT,87.92,88.27,87.62,86.94,88.58,87.92,87.25

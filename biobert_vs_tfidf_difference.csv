@@ -1,0 +1,8 @@
+Metric,BioBERT difference (percentage points)
+Accuracy,-8.33
+Macro Precision,-6.9
+Macro Recall,-8.19
+Macro F1,-9.54
+Weighted Precision,-5.61
+Weighted Recall,-8.33
+Weighted F1,-8.94

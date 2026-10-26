@@ -1,0 +1,1342 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-08-25",
+  "source_dataset": "fhai50032/SymptomsDisease246k",
+  "source_file": "symptomsDisease246k.json",
+  "source_rows": 246945,
+  "notes": "Comma-delimited symptom tokens from the underlying dataset used to create sajjadhadi/disease-diagnosis-dataset.",
+  "symptoms": [
+    {
+      "canonical": "abdominal distention",
+      "source_frequency": 183
+    },
+    {
+      "canonical": "abnormal appearing skin",
+      "source_frequency": 16425
+    },
+    {
+      "canonical": "abnormal breathing sounds",
+      "source_frequency": 2695
+    },
+    {
+      "canonical": "abnormal involuntary movements",
+      "source_frequency": 10019
+    },
+    {
+      "canonical": "abnormal movement of eyelid",
+      "source_frequency": 2082
+    },
+    {
+      "canonical": "absence of menstruation",
+      "source_frequency": 585
+    },
+    {
+      "canonical": "abusing alcohol",
+      "source_frequency": 7230
+    },
+    {
+      "canonical": "ache all over",
+      "source_frequency": 7283
+    },
+    {
+      "canonical": "acne or pimples",
+      "source_frequency": 8016
+    },
+    {
+      "canonical": "allergic reaction",
+      "source_frequency": 5931
+    },
+    {
+      "canonical": "ankle pain",
+      "source_frequency": 3996
+    },
+    {
+      "canonical": "ankle swelling",
+      "source_frequency": 2079
+    },
+    {
+      "canonical": "ankle weakness",
+      "source_frequency": 18
+    },
+    {
+      "canonical": "antisocial behavior",
+      "source_frequency": 2020
+    },
+    {
+      "canonical": "anxiety and nervousness",
+      "source_frequency": 9689
+    },
+    {
+      "canonical": "apnea",
+      "source_frequency": 1627
+    },
+    {
+      "canonical": "arm lump or mass",
+      "source_frequency": 799
+    },
+    {
+      "canonical": "arm pain",
+      "source_frequency": 11619
+    },
+    {
+      "canonical": "arm stiffness or tightness",
+      "source_frequency": 2471
+    },
+    {
+      "canonical": "arm swelling",
+      "source_frequency": 3134
+    },
+    {
+      "canonical": "arm weakness",
+      "source_frequency": 1486
+    },
+    {
+      "canonical": "back cramps or spasms",
+      "source_frequency": 1278
+    },
+    {
+      "canonical": "back mass or lump",
+      "source_frequency": 1478
+    },
+    {
+      "canonical": "back pain",
+      "source_frequency": 21809
+    },
+    {
+      "canonical": "back stiffness or tightness",
+      "source_frequency": 455
+    },
+    {
+      "canonical": "back weakness",
+      "source_frequency": 295
+    },
+    {
+      "canonical": "bedwetting",
+      "source_frequency": 168
+    },
+    {
+      "canonical": "bladder mass",
+      "source_frequency": 68
+    },
+    {
+      "canonical": "bleeding from ear",
+      "source_frequency": 688
+    },
+    {
+      "canonical": "bleeding from eye",
+      "source_frequency": 596
+    },
+    {
+      "canonical": "bleeding gums",
+      "source_frequency": 947
+    },
+    {
+      "canonical": "bleeding or discharge from nipple",
+      "source_frequency": 326
+    },
+    {
+      "canonical": "blindness",
+      "source_frequency": 1857
+    },
+    {
+      "canonical": "blood clots during menstrual periods",
+      "source_frequency": 2703
+    },
+    {
+      "canonical": "blood in stool",
+      "source_frequency": 7431
+    },
+    {
+      "canonical": "blood in urine",
+      "source_frequency": 6619
+    },
+    {
+      "canonical": "bones are painful",
+      "source_frequency": 3905
+    },
+    {
+      "canonical": "bowlegged or knock-kneed",
+      "source_frequency": 61
+    },
+    {
+      "canonical": "breathing fast",
+      "source_frequency": 468
+    },
+    {
+      "canonical": "bumps on penis",
+      "source_frequency": 342
+    },
+    {
+      "canonical": "burning abdominal pain",
+      "source_frequency": 12981
+    },
+    {
+      "canonical": "burning chest pain",
+      "source_frequency": 746
+    },
+    {
+      "canonical": "changes in stool appearance",
+      "source_frequency": 2371
+    },
+    {
+      "canonical": "chest tightness",
+      "source_frequency": 9352
+    },
+    {
+      "canonical": "chills",
+      "source_frequency": 6274
+    },
+    {
+      "canonical": "cloudy eye",
+      "source_frequency": 545
+    },
+    {
+      "canonical": "congestion in chest",
+      "source_frequency": 1417
+    },
+    {
+      "canonical": "constipation",
+      "source_frequency": 3772
+    },
+    {
+      "canonical": "contractures",
+      "source_frequency": 861
+    },
+    {
+      "canonical": "coryza",
+      "source_frequency": 7869
+    },
+    {
+      "canonical": "cough",
+      "source_frequency": 24296
+    },
+    {
+      "canonical": "coughing up sputum",
+      "source_frequency": 2683
+    },
+    {
+      "canonical": "cramps and spasms",
+      "source_frequency": 5417
+    },
+    {
+      "canonical": "cross-eyed",
+      "source_frequency": 316
+    },
+    {
+      "canonical": "decreased appetite",
+      "source_frequency": 6971
+    },
+    {
+      "canonical": "decreased heart rate",
+      "source_frequency": 2191
+    },
+    {
+      "canonical": "delusions or hallucinations",
+      "source_frequency": 7165
+    },
+    {
+      "canonical": "depression",
+      "source_frequency": 10556
+    },
+    {
+      "canonical": "depressive or psychotic symptoms",
+      "source_frequency": 15064
+    },
+    {
+      "canonical": "diaper rash",
+      "source_frequency": 939
+    },
+    {
+      "canonical": "diarrhea",
+      "source_frequency": 10472
+    },
+    {
+      "canonical": "difficulty breathing",
+      "source_frequency": 8128
+    },
+    {
+      "canonical": "difficulty eating",
+      "source_frequency": 344
+    },
+    {
+      "canonical": "difficulty in swallowing",
+      "source_frequency": 5563
+    },
+    {
+      "canonical": "difficulty speaking",
+      "source_frequency": 6190
+    },
+    {
+      "canonical": "diminished hearing",
+      "source_frequency": 5447
+    },
+    {
+      "canonical": "diminished vision",
+      "source_frequency": 8767
+    },
+    {
+      "canonical": "disturbance of memory",
+      "source_frequency": 5287
+    },
+    {
+      "canonical": "dizziness",
+      "source_frequency": 17272
+    },
+    {
+      "canonical": "double vision",
+      "source_frequency": 4583
+    },
+    {
+      "canonical": "drainage in throat",
+      "source_frequency": 100
+    },
+    {
+      "canonical": "drug abuse",
+      "source_frequency": 5348
+    },
+    {
+      "canonical": "dry lips",
+      "source_frequency": 365
+    },
+    {
+      "canonical": "dry or flaky scalp",
+      "source_frequency": 458
+    },
+    {
+      "canonical": "ear pain",
+      "source_frequency": 10584
+    },
+    {
+      "canonical": "early or late onset of menopause",
+      "source_frequency": 205
+    },
+    {
+      "canonical": "elbow pain",
+      "source_frequency": 4768
+    },
+    {
+      "canonical": "elbow swelling",
+      "source_frequency": 1988
+    },
+    {
+      "canonical": "elbow weakness",
+      "source_frequency": 334
+    },
+    {
+      "canonical": "emotional symptoms",
+      "source_frequency": 624
+    },
+    {
+      "canonical": "excessive anger",
+      "source_frequency": 6832
+    },
+    {
+      "canonical": "excessive appetite",
+      "source_frequency": 594
+    },
+    {
+      "canonical": "excessive growth",
+      "source_frequency": 36
+    },
+    {
+      "canonical": "excessive urination at night",
+      "source_frequency": 1743
+    },
+    {
+      "canonical": "eye burns or stings",
+      "source_frequency": 3081
+    },
+    {
+      "canonical": "eye deviation",
+      "source_frequency": 860
+    },
+    {
+      "canonical": "eye moves abnormally",
+      "source_frequency": 542
+    },
+    {
+      "canonical": "eye redness",
+      "source_frequency": 6077
+    },
+    {
+      "canonical": "eyelid lesion or rash",
+      "source_frequency": 510
+    },
+    {
+      "canonical": "eyelid swelling",
+      "source_frequency": 1639
+    },
+    {
+      "canonical": "facial pain",
+      "source_frequency": 8111
+    },
+    {
+      "canonical": "fainting",
+      "source_frequency": 6972
+    },
+    {
+      "canonical": "fatigue",
+      "source_frequency": 6199
+    },
+    {
+      "canonical": "fears and phobias",
+      "source_frequency": 4152
+    },
+    {
+      "canonical": "feeling cold",
+      "source_frequency": 100
+    },
+    {
+      "canonical": "feeling hot",
+      "source_frequency": 1
+    },
+    {
+      "canonical": "feeling ill",
+      "source_frequency": 4336
+    },
+    {
+      "canonical": "fever",
+      "source_frequency": 20394
+    },
+    {
+      "canonical": "flatulence",
+      "source_frequency": 880
+    },
+    {
+      "canonical": "flu-like syndrome",
+      "source_frequency": 1046
+    },
+    {
+      "canonical": "fluid in ear",
+      "source_frequency": 3153
+    },
+    {
+      "canonical": "fluid retention",
+      "source_frequency": 4233
+    },
+    {
+      "canonical": "flushing",
+      "source_frequency": 92
+    },
+    {
+      "canonical": "focal weakness",
+      "source_frequency": 2918
+    },
+    {
+      "canonical": "foot or toe lump or mass",
+      "source_frequency": 36
+    },
+    {
+      "canonical": "foot or toe pain",
+      "source_frequency": 7087
+    },
+    {
+      "canonical": "foot or toe stiffness or tightness",
+      "source_frequency": 313
+    },
+    {
+      "canonical": "foot or toe swelling",
+      "source_frequency": 4264
+    },
+    {
+      "canonical": "foot or toe weakness",
+      "source_frequency": 108
+    },
+    {
+      "canonical": "foreign body sensation in eye",
+      "source_frequency": 5497
+    },
+    {
+      "canonical": "frequent menstruation",
+      "source_frequency": 945
+    },
+    {
+      "canonical": "frequent urination",
+      "source_frequency": 7189
+    },
+    {
+      "canonical": "frontal headache",
+      "source_frequency": 1797
+    },
+    {
+      "canonical": "groin mass",
+      "source_frequency": 2043
+    },
+    {
+      "canonical": "groin pain",
+      "source_frequency": 2415
+    },
+    {
+      "canonical": "gum pain",
+      "source_frequency": 2144
+    },
+    {
+      "canonical": "hand or finger cramps or spasms",
+      "source_frequency": 47
+    },
+    {
+      "canonical": "hand or finger lump or mass",
+      "source_frequency": 1013
+    },
+    {
+      "canonical": "hand or finger pain",
+      "source_frequency": 6856
+    },
+    {
+      "canonical": "hand or finger stiffness or tightness",
+      "source_frequency": 1801
+    },
+    {
+      "canonical": "hand or finger swelling",
+      "source_frequency": 4800
+    },
+    {
+      "canonical": "hand or finger weakness",
+      "source_frequency": 810
+    },
+    {
+      "canonical": "headache",
+      "source_frequency": 24719
+    },
+    {
+      "canonical": "heartburn",
+      "source_frequency": 6953
+    },
+    {
+      "canonical": "heavy menstrual flow",
+      "source_frequency": 3478
+    },
+    {
+      "canonical": "hemoptysis",
+      "source_frequency": 2149
+    },
+    {
+      "canonical": "hesitancy",
+      "source_frequency": 776
+    },
+    {
+      "canonical": "hip pain",
+      "source_frequency": 9623
+    },
+    {
+      "canonical": "hip stiffness or tightness",
+      "source_frequency": 612
+    },
+    {
+      "canonical": "hoarse voice",
+      "source_frequency": 3324
+    },
+    {
+      "canonical": "hostile behavior",
+      "source_frequency": 7981
+    },
+    {
+      "canonical": "hot flashes",
+      "source_frequency": 1806
+    },
+    {
+      "canonical": "hurts to breath",
+      "source_frequency": 2476
+    },
+    {
+      "canonical": "hysterical behavior",
+      "source_frequency": 1243
+    },
+    {
+      "canonical": "impotence",
+      "source_frequency": 2430
+    },
+    {
+      "canonical": "incontinence of stool",
+      "source_frequency": 9
+    },
+    {
+      "canonical": "increased heart rate",
+      "source_frequency": 3180
+    },
+    {
+      "canonical": "infant feeding problem",
+      "source_frequency": 727
+    },
+    {
+      "canonical": "infant spitting up",
+      "source_frequency": 80
+    },
+    {
+      "canonical": "infertility",
+      "source_frequency": 1191
+    },
+    {
+      "canonical": "insomnia",
+      "source_frequency": 9732
+    },
+    {
+      "canonical": "intermenstrual bleeding",
+      "source_frequency": 6370
+    },
+    {
+      "canonical": "involuntary urination",
+      "source_frequency": 6277
+    },
+    {
+      "canonical": "irregular appearing nails",
+      "source_frequency": 2026
+    },
+    {
+      "canonical": "irregular appearing scalp",
+      "source_frequency": 8022
+    },
+    {
+      "canonical": "irregular belly button",
+      "source_frequency": 239
+    },
+    {
+      "canonical": "irregular heartbeat",
+      "source_frequency": 6201
+    },
+    {
+      "canonical": "irritable infant",
+      "source_frequency": 2235
+    },
+    {
+      "canonical": "itchiness of eye",
+      "source_frequency": 6900
+    },
+    {
+      "canonical": "itching of scrotum",
+      "source_frequency": 4
+    },
+    {
+      "canonical": "itching of skin",
+      "source_frequency": 10363
+    },
+    {
+      "canonical": "itching of the anus",
+      "source_frequency": 933
+    },
+    {
+      "canonical": "itchy ear(s)",
+      "source_frequency": 1209
+    },
+    {
+      "canonical": "itchy eyelid",
+      "source_frequency": 510
+    },
+    {
+      "canonical": "itchy scalp",
+      "source_frequency": 1824
+    },
+    {
+      "canonical": "jaundice",
+      "source_frequency": 1584
+    },
+    {
+      "canonical": "jaw swelling",
+      "source_frequency": 2335
+    },
+    {
+      "canonical": "joint pain",
+      "source_frequency": 4345
+    },
+    {
+      "canonical": "joint swelling",
+      "source_frequency": 342
+    },
+    {
+      "canonical": "kidney mass",
+      "source_frequency": 598
+    },
+    {
+      "canonical": "knee lump or mass",
+      "source_frequency": 970
+    },
+    {
+      "canonical": "knee pain",
+      "source_frequency": 8021
+    },
+    {
+      "canonical": "knee stiffness or tightness",
+      "source_frequency": 1250
+    },
+    {
+      "canonical": "knee swelling",
+      "source_frequency": 3808
+    },
+    {
+      "canonical": "knee weakness",
+      "source_frequency": 1159
+    },
+    {
+      "canonical": "lack of growth",
+      "source_frequency": 3291
+    },
+    {
+      "canonical": "lacrimation",
+      "source_frequency": 7324
+    },
+    {
+      "canonical": "leg cramps or spasms",
+      "source_frequency": 1960
+    },
+    {
+      "canonical": "leg lump or mass",
+      "source_frequency": 112
+    },
+    {
+      "canonical": "leg pain",
+      "source_frequency": 16189
+    },
+    {
+      "canonical": "leg stiffness or tightness",
+      "source_frequency": 1336
+    },
+    {
+      "canonical": "leg swelling",
+      "source_frequency": 5987
+    },
+    {
+      "canonical": "leg weakness",
+      "source_frequency": 2411
+    },
+    {
+      "canonical": "lip sore",
+      "source_frequency": 98
+    },
+    {
+      "canonical": "lip swelling",
+      "source_frequency": 5855
+    },
+    {
+      "canonical": "long menstrual periods",
+      "source_frequency": 2522
+    },
+    {
+      "canonical": "loss of sensation",
+      "source_frequency": 10399
+    },
+    {
+      "canonical": "loss of sex drive",
+      "source_frequency": 782
+    },
+    {
+      "canonical": "low back cramps or spasms",
+      "source_frequency": 103
+    },
+    {
+      "canonical": "low back pain",
+      "source_frequency": 11053
+    },
+    {
+      "canonical": "low back weakness",
+      "source_frequency": 5
+    },
+    {
+      "canonical": "low self-esteem",
+      "source_frequency": 2635
+    },
+    {
+      "canonical": "low urine output",
+      "source_frequency": 830
+    },
+    {
+      "canonical": "lower abdominal pain",
+      "source_frequency": 14936
+    },
+    {
+      "canonical": "lower body pain",
+      "source_frequency": 7530
+    },
+    {
+      "canonical": "lump in throat",
+      "source_frequency": 520
+    },
+    {
+      "canonical": "lump or mass of breast",
+      "source_frequency": 374
+    },
+    {
+      "canonical": "lymphedema",
+      "source_frequency": 2685
+    },
+    {
+      "canonical": "mass in scrotum",
+      "source_frequency": 1294
+    },
+    {
+      "canonical": "mass on eyelid",
+      "source_frequency": 1160
+    },
+    {
+      "canonical": "mass or swelling around the anus",
+      "source_frequency": 460
+    },
+    {
+      "canonical": "melena",
+      "source_frequency": 2080
+    },
+    {
+      "canonical": "mouth dryness",
+      "source_frequency": 963
+    },
+    {
+      "canonical": "mouth pain",
+      "source_frequency": 2508
+    },
+    {
+      "canonical": "mouth ulcer",
+      "source_frequency": 3020
+    },
+    {
+      "canonical": "muscle cramps",
+      "source_frequency": 861
+    },
+    {
+      "canonical": "muscle pain",
+      "source_frequency": 1845
+    },
+    {
+      "canonical": "muscle stiffness or tightness",
+      "source_frequency": 185
+    },
+    {
+      "canonical": "muscle swelling",
+      "source_frequency": 265
+    },
+    {
+      "canonical": "muscle weakness",
+      "source_frequency": 34
+    },
+    {
+      "canonical": "nasal congestion",
+      "source_frequency": 16200
+    },
+    {
+      "canonical": "nausea",
+      "source_frequency": 23687
+    },
+    {
+      "canonical": "neck cramps or spasms",
+      "source_frequency": 134
+    },
+    {
+      "canonical": "neck mass",
+      "source_frequency": 2015
+    },
+    {
+      "canonical": "neck pain",
+      "source_frequency": 10238
+    },
+    {
+      "canonical": "neck stiffness or tightness",
+      "source_frequency": 1112
+    },
+    {
+      "canonical": "neck swelling",
+      "source_frequency": 2186
+    },
+    {
+      "canonical": "nightmares",
+      "source_frequency": 513
+    },
+    {
+      "canonical": "nosebleed",
+      "source_frequency": 1491
+    },
+    {
+      "canonical": "obsessions and compulsions",
+      "source_frequency": 1703
+    },
+    {
+      "canonical": "or roughness",
+      "source_frequency": 7867
+    },
+    {
+      "canonical": "or spasms",
+      "source_frequency": 861
+    },
+    {
+      "canonical": "pain during intercourse",
+      "source_frequency": 1460
+    },
+    {
+      "canonical": "pain during pregnancy",
+      "source_frequency": 5198
+    },
+    {
+      "canonical": "pain in eye",
+      "source_frequency": 9453
+    },
+    {
+      "canonical": "pain in gums",
+      "source_frequency": 1709
+    },
+    {
+      "canonical": "pain in testicles",
+      "source_frequency": 2458
+    },
+    {
+      "canonical": "pain of the anus",
+      "source_frequency": 3260
+    },
+    {
+      "canonical": "pain or soreness of breast",
+      "source_frequency": 655
+    },
+    {
+      "canonical": "painful menstruation",
+      "source_frequency": 2107
+    },
+    {
+      "canonical": "painful sinuses",
+      "source_frequency": 2389
+    },
+    {
+      "canonical": "painful urination",
+      "source_frequency": 8634
+    },
+    {
+      "canonical": "palpitations",
+      "source_frequency": 6143
+    },
+    {
+      "canonical": "paresthesia",
+      "source_frequency": 6568
+    },
+    {
+      "canonical": "peeling",
+      "source_frequency": 7867
+    },
+    {
+      "canonical": "pelvic pain",
+      "source_frequency": 9467
+    },
+    {
+      "canonical": "pelvic pressure",
+      "source_frequency": 20
+    },
+    {
+      "canonical": "penile discharge",
+      "source_frequency": 307
+    },
+    {
+      "canonical": "penis pain",
+      "source_frequency": 477
+    },
+    {
+      "canonical": "penis redness",
+      "source_frequency": 252
+    },
+    {
+      "canonical": "peripheral edema",
+      "source_frequency": 8696
+    },
+    {
+      "canonical": "plugged feeling in ear",
+      "source_frequency": 4234
+    },
+    {
+      "canonical": "poor circulation",
+      "source_frequency": 56
+    },
+    {
+      "canonical": "postpartum problems of the breast",
+      "source_frequency": 252
+    },
+    {
+      "canonical": "premature ejaculation",
+      "source_frequency": 87
+    },
+    {
+      "canonical": "premenstrual tension or irritability",
+      "source_frequency": 61
+    },
+    {
+      "canonical": "problems during pregnancy",
+      "source_frequency": 4245
+    },
+    {
+      "canonical": "problems with movement",
+      "source_frequency": 8898
+    },
+    {
+      "canonical": "problems with shape or size of breast",
+      "source_frequency": 47
+    },
+    {
+      "canonical": "pulling at ears",
+      "source_frequency": 3542
+    },
+    {
+      "canonical": "pus draining from ear",
+      "source_frequency": 794
+    },
+    {
+      "canonical": "recent pregnancy",
+      "source_frequency": 719
+    },
+    {
+      "canonical": "recent weight loss",
+      "source_frequency": 146
+    },
+    {
+      "canonical": "rectal bleeding",
+      "source_frequency": 4333
+    },
+    {
+      "canonical": "redness in ear",
+      "source_frequency": 3022
+    },
+    {
+      "canonical": "redness in or around nose",
+      "source_frequency": 231
+    },
+    {
+      "canonical": "regurgitation",
+      "source_frequency": 2490
+    },
+    {
+      "canonical": "regurgitation.1",
+      "source_frequency": 4170
+    },
+    {
+      "canonical": "restlessness",
+      "source_frequency": 2475
+    },
+    {
+      "canonical": "retention of urine",
+      "source_frequency": 8332
+    },
+    {
+      "canonical": "rib pain",
+      "source_frequency": 2018
+    },
+    {
+      "canonical": "ringing in ear",
+      "source_frequency": 2722
+    },
+    {
+      "canonical": "scaliness",
+      "source_frequency": 7867
+    },
+    {
+      "canonical": "scanty menstrual flow",
+      "source_frequency": 12
+    },
+    {
+      "canonical": "seizures",
+      "source_frequency": 3842
+    },
+    {
+      "canonical": "sharp abdominal pain",
+      "source_frequency": 32307
+    },
+    {
+      "canonical": "sharp chest pain",
+      "source_frequency": 24016
+    },
+    {
+      "canonical": "shortness of breath",
+      "source_frequency": 21346
+    },
+    {
+      "canonical": "shoulder lump or mass",
+      "source_frequency": 350
+    },
+    {
+      "canonical": "shoulder pain",
+      "source_frequency": 7769
+    },
+    {
+      "canonical": "shoulder stiffness or tightness",
+      "source_frequency": 1559
+    },
+    {
+      "canonical": "shoulder swelling",
+      "source_frequency": 146
+    },
+    {
+      "canonical": "shoulder weakness",
+      "source_frequency": 193
+    },
+    {
+      "canonical": "side pain",
+      "source_frequency": 10506
+    },
+    {
+      "canonical": "sinus congestion",
+      "source_frequency": 2338
+    },
+    {
+      "canonical": "skin dryness",
+      "source_frequency": 7867
+    },
+    {
+      "canonical": "skin growth",
+      "source_frequency": 10311
+    },
+    {
+      "canonical": "skin irritation",
+      "source_frequency": 4852
+    },
+    {
+      "canonical": "skin lesion",
+      "source_frequency": 12340
+    },
+    {
+      "canonical": "skin moles",
+      "source_frequency": 6367
+    },
+    {
+      "canonical": "skin on arm or hand looks infected",
+      "source_frequency": 498
+    },
+    {
+      "canonical": "skin on leg or foot looks infected",
+      "source_frequency": 1447
+    },
+    {
+      "canonical": "skin pain",
+      "source_frequency": 1
+    },
+    {
+      "canonical": "skin rash",
+      "source_frequency": 12375
+    },
+    {
+      "canonical": "skin swelling",
+      "source_frequency": 15165
+    },
+    {
+      "canonical": "sleepiness",
+      "source_frequency": 2847
+    },
+    {
+      "canonical": "slurring words",
+      "source_frequency": 1744
+    },
+    {
+      "canonical": "smoking problems",
+      "source_frequency": 1966
+    },
+    {
+      "canonical": "sneezing",
+      "source_frequency": 1190
+    },
+    {
+      "canonical": "sore in nose",
+      "source_frequency": 342
+    },
+    {
+      "canonical": "sore throat",
+      "source_frequency": 14005
+    },
+    {
+      "canonical": "spots or clouds in vision",
+      "source_frequency": 5221
+    },
+    {
+      "canonical": "spotting or bleeding during pregnancy",
+      "source_frequency": 2686
+    },
+    {
+      "canonical": "stiffness all over",
+      "source_frequency": 985
+    },
+    {
+      "canonical": "stomach bloating",
+      "source_frequency": 2210
+    },
+    {
+      "canonical": "suprapubic pain",
+      "source_frequency": 8325
+    },
+    {
+      "canonical": "sweating",
+      "source_frequency": 3756
+    },
+    {
+      "canonical": "swelling of scrotum",
+      "source_frequency": 1844
+    },
+    {
+      "canonical": "swollen abdomen",
+      "source_frequency": 652
+    },
+    {
+      "canonical": "swollen eye",
+      "source_frequency": 4698
+    },
+    {
+      "canonical": "swollen lymph nodes",
+      "source_frequency": 1876
+    },
+    {
+      "canonical": "swollen or red tonsils",
+      "source_frequency": 680
+    },
+    {
+      "canonical": "symptoms of bladder",
+      "source_frequency": 2898
+    },
+    {
+      "canonical": "symptoms of eye",
+      "source_frequency": 8373
+    },
+    {
+      "canonical": "symptoms of infants",
+      "source_frequency": 237
+    },
+    {
+      "canonical": "symptoms of prostate",
+      "source_frequency": 1498
+    },
+    {
+      "canonical": "symptoms of the face",
+      "source_frequency": 2284
+    },
+    {
+      "canonical": "symptoms of the kidneys",
+      "source_frequency": 1289
+    },
+    {
+      "canonical": "symptoms of the scrotum and testes",
+      "source_frequency": 2096
+    },
+    {
+      "canonical": "temper problems",
+      "source_frequency": 6741
+    },
+    {
+      "canonical": "thirst",
+      "source_frequency": 1
+    },
+    {
+      "canonical": "throat feels tight",
+      "source_frequency": 2408
+    },
+    {
+      "canonical": "throat redness",
+      "source_frequency": 234
+    },
+    {
+      "canonical": "throat swelling",
+      "source_frequency": 1809
+    },
+    {
+      "canonical": "tongue lesions",
+      "source_frequency": 998
+    },
+    {
+      "canonical": "too little hair",
+      "source_frequency": 1257
+    },
+    {
+      "canonical": "toothache",
+      "source_frequency": 2673
+    },
+    {
+      "canonical": "unpredictable menstruation",
+      "source_frequency": 2319
+    },
+    {
+      "canonical": "unusual color or odor to urine",
+      "source_frequency": 931
+    },
+    {
+      "canonical": "unwanted hair",
+      "source_frequency": 22
+    },
+    {
+      "canonical": "upper abdominal pain",
+      "source_frequency": 6382
+    },
+    {
+      "canonical": "uterine contractions",
+      "source_frequency": 1382
+    },
+    {
+      "canonical": "vaginal bleeding after menopause",
+      "source_frequency": 91
+    },
+    {
+      "canonical": "vaginal discharge",
+      "source_frequency": 6713
+    },
+    {
+      "canonical": "vaginal dryness",
+      "source_frequency": 313
+    },
+    {
+      "canonical": "vaginal itching",
+      "source_frequency": 5260
+    },
+    {
+      "canonical": "vaginal pain",
+      "source_frequency": 2910
+    },
+    {
+      "canonical": "vaginal redness",
+      "source_frequency": 1275
+    },
+    {
+      "canonical": "vomiting",
+      "source_frequency": 27874
+    },
+    {
+      "canonical": "vomiting blood",
+      "source_frequency": 3313
+    },
+    {
+      "canonical": "vulvar irritation",
+      "source_frequency": 543
+    },
+    {
+      "canonical": "vulvar sore",
+      "source_frequency": 97
+    },
+    {
+      "canonical": "warts",
+      "source_frequency": 2930
+    },
+    {
+      "canonical": "weakness",
+      "source_frequency": 11551
+    },
+    {
+      "canonical": "weight gain",
+      "source_frequency": 2978
+    },
+    {
+      "canonical": "wheezing",
+      "source_frequency": 4859
+    },
+    {
+      "canonical": "white discharge from eye",
+      "source_frequency": 3224
+    },
+    {
+      "canonical": "wrinkles on skin",
+      "source_frequency": 204
+    },
+    {
+      "canonical": "wrist lump or mass",
+      "source_frequency": 339
+    },
+    {
+      "canonical": "wrist pain",
+      "source_frequency": 4879
+    },
+    {
+      "canonical": "wrist stiffness or tightness",
+      "source_frequency": 255
+    },
+    {
+      "canonical": "wrist swelling",
+      "source_frequency": 3512
+    },
+    {
+      "canonical": "wrist weakness",
+      "source_frequency": 4
+    }
+  ]
+}

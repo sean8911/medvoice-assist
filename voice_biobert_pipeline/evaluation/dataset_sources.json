@@ -1,0 +1,20 @@
+{
+  "medical_speech_intent": {
+    "source": "https://www.kaggle.com/datasets/paultimothymooney/medical-speech-transcription-and-intent",
+    "local_folder": "datasets/medical_speech_intent",
+    "intended_use": "WER, CER, multi-speaker testing, and BioBERT prediction stability",
+    "ground_truth_warning": "Prompt labels contain known errors and are not 773-class disease labels."
+  },
+  "primock57": {
+    "source": "https://github.com/babylonhealth/primock57",
+    "license": "CC BY 4.0",
+    "local_folder": "datasets/primock57",
+    "intended_use": "Patient-only clinical speech, WER, CER, and manually mapped disease evaluation"
+  },
+  "rirs_noises": {
+    "source": "https://www.openslr.org/28/",
+    "license": "Apache 2.0",
+    "local_folder": "datasets/rirs_noises",
+    "intended_use": "Controlled additive noise at 20, 10, 5, and 0 dB SNR"
+  }
+}

@@ -1,0 +1,8 @@
+numpy>=1.24,<3
+torch>=2.2,<3
+transformers>=4.41,<5
+safetensors>=0.4
+librosa>=0.10
+noisereduce>=3.0
+soundfile>=0.12
+sounddevice>=0.4.6
