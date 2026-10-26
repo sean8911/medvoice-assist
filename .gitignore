@@ -78,3 +78,32 @@ checkpoint-*/
 *.tar
 *.tar.gz
 *.tgz
+
+# Retired material kept locally, but not part of the curated thesis repository
+/docs/superpowers/
+/bert_symptom_model/
+/biobert_symptom_model/
+/BioBERT/outputs/
+/BioBERT/data/disease-diagnosis-dataset/
+/TF-IDF and Fine Tune BERT/data/disease-diagnosis-dataset/
+/TF-IDF and Fine Tune BERT/outputs/models/
+/TF-IDF and Fine Tune BERT/outputs/bert_trainer_log_history.json
+/TF-IDF and Fine Tune BERT/outputs/fine_tuned_bert_classification_report.csv
+/TF-IDF and Fine Tune BERT/outputs/tfidf_logistic_regression_classification_report.csv
+/TF-IDF and Fine Tune BERT/train.sh
+/voice_biobert_pipeline/evaluation/outputs/full_test_inventory/
+/voice_biobert_pipeline/evaluation/outputs/full_test_smoke/
+/tests/test_thesis2_biobert_server.py
+/tests/test_thesis2_three_model_server.py
+/scripts/add_gantt_section_to_proposal.py
+/scripts/add_model_architectures_to_proposal.py
+/scripts/render_docx_with_word.ps1
+/scripts/rewrite_chapter4_docx.py
+/scripts/rewrite_gantt_and_milestones.py
+/bert_finetuning_improvement.csv
+/tfidf_improvement_over_bert.csv
+/biobert_vs_tfidf_difference.csv
+/biobert_model_comparison.csv
+/biobert_vs_tfidf_comparison.png
+/fine_tuned_bert_classification_report.csv
+/tfidf_logistic_regression_classification_report.csv

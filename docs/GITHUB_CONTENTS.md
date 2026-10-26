@@ -1,23 +1,38 @@
-# GitHub snapshot contents
+# Repository scope
 
-Repository: `sean8911/medvoice-assist` (private).
-Initial commit message: `Initial commit`.
+`sean8911/medvoice-assist` remains private. Repository cleanup changes the current
+tracked file set; it does not erase earlier Git history or delete the original
+files from the development laptop.
 
-## Included in Git
+## Retained
 
-- Application and pipeline source, tests, requirements and setup scripts.
-- Training/comparison notebooks and scripts.
-- Retained comparison reports, plots, run metadata and lightweight model metadata.
-- Thesis proposal, chapter drafts, diagrams and LaTeX algorithms in this workspace.
-- Dataset source README and summary where explicitly retained by `.gitignore`.
+- The working React/FastAPI app, pipeline modules and their current tests.
+- Both dataset stages: preliminary notebooks and canonical comparison reports,
+  expanded training source, final reports and run metadata.
+- The BioBERT continuation script and its required baseline input reports.
+- Legacy speech-pilot source, its principal result files and dataset references.
+- Thesis proposal, methodology/implementation chapters, algorithms and diagrams.
+- Notebook/figure utilities relevant to the retained experiments.
+- Setup, results and experiment documentation, plus genuine report-based graphs.
 
-Existing code and report limitations are preserved. The upload does not retrain
-models, alter classification thresholds, conduct human evaluation or deploy a
-public medical service.
+## Removed from the current tracked view
 
-## Supplied as a private release attachment
+- Retired 24-class checkpoint metadata without the corresponding weights.
+- Duplicated intermediate training outputs and copied dataset metadata.
+- Superseded two-model difference/comparison files and exact duplicate reports.
+- Old authoring plans and proposal-formatting/export utilities.
+- Package tests hard-coded to former folder names no longer present.
+- Smoke-test inventories/plots duplicated beside the principal speech pilot.
+- The unrelated YOLO launcher mistakenly present in the three-model folder.
 
-The `initial-commit` release supplies `biobert-final.zip`, containing:
+Files in those categories remain locally and are now ignored to avoid accidental
+re-addition. Distinct reports that document separate experiment settings are not
+removed simply because their filenames look similar.
+
+## Trained model release
+
+The existing private `initial-commit` release remains unchanged. Its assets are
+`biobert-final.zip` and `biobert-final.sha256`; the archive contains:
 
 ```text
 biobert/config.json
@@ -27,41 +42,19 @@ biobert/tokenizer.json
 biobert/MANIFEST.sha256
 ```
 
-These inference files are copied unchanged from
-`3 Models After Training/outputs/models/biobert/`. The pickle-based
-`training_args.bin` is unnecessary for inference and is not included. Hashes and
-the archive checksum are recorded in `docs/model_artifacts.json`.
+The four inference files match the original final 773-class checkpoint. Hashes
+are recorded in [model_artifacts.json](model_artifacts.json). Restore as described
+in [Setup](SETUP.md); the automatic source archive does not include these weights.
+No Git LFS storage is used for the model.
 
-GitHub Release storage is used instead of Git LFS. Download the attachment
-separately after cloning; GitHub's automatic source ZIP does not contain it.
-The release inherits the private repository's access restrictions.
+## Excluded local data
 
-## Kept only on the development laptop
+Downloaded speech/noise data, raw/prepared training datasets, large weights,
+duplicate checkpoints, virtual environments, `node_modules`, generated `dist`,
+scratch renders, raw recordings, conversation outputs and logs remain excluded.
+Participant/consent records and credentials must not be committed, even while
+the repository is private.
 
-- Downloaded medical speech and environmental-noise datasets.
-- Raw and prepared training datasets, including the root Symptom2Disease CSV.
-- Earlier BERT/BioBERT weights, TF-IDF joblib files and duplicate training checkpoints.
-- Python/JavaScript caches, environments and `node_modules`.
-- Generated frontend `dist`, which setup rebuilds.
-- Scratch files under `tmp`, server logs and local voice-pipeline outputs.
-- Raw audio recordings, credentials and any private participant/consent records.
-
-This is not a complete 36 GB laptop backup. All excluded files remain in place.
-Keep a separate appropriate backup of irreplaceable data and weights. Review
-source and data licensing before making this repository public. Do not add a
-software/data licence on the assumption that it covers third-party datasets or
-pretrained weights.
-
-## Future commits
-
-From the repository root, review the change list before staging:
-
-```powershell
-git status
-git add <specific-files-you-reviewed>
-git commit -m "Describe the change"
-git push
-```
-
-Keep `.env` secrets, raw participant responses, identifiable recordings and
-consent records out of Git, even while the repository remains private.
+This is a curated thesis source repository, not a complete laptop backup or a
+publicly deployed medical service. A separate backup remains necessary for
+irreplaceable data and model checkpoints.

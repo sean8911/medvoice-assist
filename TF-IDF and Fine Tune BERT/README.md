@@ -11,8 +11,7 @@ The code uses Python scripts only. There are no notebook files in this package.
 ## Folder Layout
 
 ```text
-thesis2_three_model_server/
-  train.sh
+TF-IDF and Fine Tune BERT/
   train_three_models.py
   requirements.txt
   data/
@@ -39,30 +38,33 @@ disease_diagnosis_test_cleaned.csv
 Create and activate the conda environment before submitting the job:
 
 ```bash
-cd thesis2_three_model_server
+cd "TF-IDF and Fine Tune BERT"
 conda create -n thesis2 python=3.10 -y
 conda activate thesis2
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Then submit the SLURM job:
+Within a permitted school-server job allocation, run the Python entry point:
 
 ```bash
-sbatch train.sh
+python train_three_models.py --dataset-dir data/disease-diagnosis-dataset --output-dir outputs_new --models tfidf bert biobert --epochs 3 --batch-size 16 --max-length 128
 ```
 
-The `train.sh` file intentionally follows the simple school-server format:
-SBATCH lines first, then one Python command. Do not add `conda`, `pip`,
-`mkdir`, or `module load` commands inside `train.sh` if your server blocks
-them.
+The unrelated YOLO `train.sh` formerly present in this folder is excluded from
+the curated repository. Do not submit it for this experiment. A SLURM batch
+launcher must invoke the Python command above and request resources permitted
+by the school. Set up the environment before submitting the job.
 
-If the server needs GPU PyTorch installed separately, run this before
-`pip install -r requirements.txt`:
+Install the PyTorch build appropriate to the server's CUDA/driver environment
+before installing the remaining requirements. Do not assume a wheel chosen for
+another machine will work. Starting BioBERT from upstream `.bin` weights also
+requires a sufficiently recent Torch version for the installed Transformers.
 
-```bash
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-```
+The current final reports are retained separately in
+`3 Models After Training/outputs/`. New runs should use a new output directory.
+See [experiment provenance](../docs/EXPERIMENTS.md) and
+[evaluation limitations](../docs/RESULTS.md) before interpreting results.
 
 ## Quick Smoke Test
 

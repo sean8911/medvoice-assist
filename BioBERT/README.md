@@ -56,7 +56,7 @@ newer.
 ## Run
 
 ```bash
-cd thesis2_biobert_server
+cd BioBERT
 sbatch train.sh
 ```
 
@@ -70,6 +70,12 @@ every 1000 optimizer steps in:
 ```text
 outputs/checkpoints/biobert/
 ```
+
+This convenience default is not the retained final run configuration, which
+records three epochs with automatic checkpoint resumption. The final reports
+are under `3 Models After Training/outputs/`; see
+[experiment provenance](../docs/EXPERIMENTS.md). Do not describe a new one-epoch
+run as reproduction of the three-epoch artifact.
 
 If the server stops the job before it finishes, submit the same script again:
 
