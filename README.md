@@ -57,12 +57,14 @@ From the repository root, after downloading the archive into that root:
 
 ```powershell
 Get-FileHash -LiteralPath .\biobert-final.zip -Algorithm SHA256
-Expand-Archive -LiteralPath .\biobert-final.zip -DestinationPath ".\3 Models After Training\outputs\models"
+Expand-Archive -LiteralPath .\biobert-final.zip -DestinationPath ".\3 Models After Training\outputs\models" -Force
 ```
 
 Compare the displayed hash with the checksum file before extracting. These
-instructions assume a fresh clone; do not overwrite another model checkpoint
-without checking it first. Cloning the source alone does not download the model.
+instructions assume a fresh clone: `-Force` replaces its tracked model metadata
+with the archived originals and adds the missing weights. Do not run this over
+a different trained checkpoint without checking and backing it up first.
+Cloning the source alone does not download the model.
 
 ## Run locally on Windows
 
