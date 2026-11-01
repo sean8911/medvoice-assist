@@ -1,38 +1,48 @@
-# Repository scope
+# Repository Scope
 
-`sean8911/medvoice-assist` remains private. Repository cleanup changes the current
-tracked file set; it does not erase earlier Git history or delete the original
-files from the development laptop.
+This private repository contains the MedVoice Assist application and the
+research code and results needed to understand its development. It is a source
+repository, not a backup of the complete thesis-writing workspace.
 
-## Retained
+## Included
 
-- The working React/FastAPI app, pipeline modules and their current tests.
-- Both dataset stages: preliminary notebooks and canonical comparison reports,
-  expanded training source, final reports and run metadata.
-- The BioBERT continuation script and its required baseline input reports.
-- Legacy speech-pilot source, its principal result files and dataset references.
-- Thesis proposal, methodology/implementation chapters, algorithms and diagrams.
-- Notebook/figure utilities relevant to the retained experiments.
-- Setup, results and experiment documentation, plus genuine report-based graphs.
+- React/FastAPI application, configuration examples and launch scripts.
+- Speech processing, symptom extraction, urgency, clarification and response
+  modules, with their tests and rule documentation.
+- Preliminary research notebooks and the reports from those experiments.
+- Expanded three-model training code, BioBERT continuation code, required
+  baseline reports, final comparison reports and run configuration.
+- The earlier speech/noise pilot's evaluation code and principal results.
+- Dataset-source documentation, without the downloaded datasets.
+- Setup and reproducibility documentation, architecture diagrams, report-based
+  visualisations and genuine fictional app-demo screenshots.
 
-## Removed from the current tracked view
+Distinct reports from different experiment settings remain separate even when
+their filenames are similar. Paths used by the training scripts and historical
+notebooks have been preserved to avoid changing their behaviour during cleanup.
 
-- Retired 24-class checkpoint metadata without the corresponding weights.
-- Duplicated intermediate training outputs and copied dataset metadata.
-- Superseded two-model difference/comparison files and exact duplicate reports.
-- Old authoring plans and proposal-formatting/export utilities.
-- Package tests hard-coded to former folder names no longer present.
-- Smoke-test inventories/plots duplicated beside the principal speech pilot.
-- The unrelated YOLO launcher mistakenly present in the three-model folder.
+## Kept Locally but Excluded from Git
 
-Files in those categories remain locally and are now ignored to avoid accidental
-re-addition. Distinct reports that document separate experiment settings are not
-removed simply because their filenames look similar.
+- The `chapter4_rewrite_figures/` folder and its figure-generation helper.
+- Thesis proposal, chapter drafts, bibliography, LaTeX algorithms, assembly
+  guides and other report-writing exports.
+- Superseded proposal-formatting and document-generation scripts.
+- Old checkpoint metadata, duplicate intermediate training outputs and retired
+  tests tied to former directory names.
+- Downloaded audio/noise and text datasets, raw recordings, conversation
+  outputs, logs, scratch renders, virtual environments and frontend builds.
+- Full trained weights and duplicate training checkpoints.
+- Participant records, consent forms, credentials and local secrets.
 
-## Trained model release
+The ignore rules prevent these categories from being accidentally re-added.
+Removing a file from the current Git tree does **not** delete its local copy or
+erase it from earlier commits. The repository and existing release remain
+private. This cleanup is not a history rewrite or a sensitive-data purge.
 
-The existing private `initial-commit` release remains unchanged. Its assets are
-`biobert-final.zip` and `biobert-final.sha256`; the archive contains:
+## Final Trained Model
+
+The [private model release](https://github.com/sean8911/medvoice-assist/releases/tag/initial-commit)
+contains `biobert-final.zip` and `biobert-final.sha256`. The archive restores:
 
 ```text
 biobert/config.json
@@ -42,19 +52,11 @@ biobert/tokenizer.json
 biobert/MANIFEST.sha256
 ```
 
-The four inference files match the original final 773-class checkpoint. Hashes
-are recorded in [model_artifacts.json](model_artifacts.json). Restore as described
-in [Setup](SETUP.md); the automatic source archive does not include these weights.
-No Git LFS storage is used for the model.
+The four inference files were packaged from the final local 773-class
+checkpoint. [model_artifacts.json](model_artifacts.json) records the hashes;
+[Setup](SETUP.md#restore-the-final-trained-model) describes checksum verification
+and extraction. The release is unchanged by the repository cleanup. Source
+archives and ordinary Git clones do not include the model weights, and Git LFS
+is not used for the checkpoint.
 
-## Excluded local data
-
-Downloaded speech/noise data, raw/prepared training datasets, large weights,
-duplicate checkpoints, virtual environments, `node_modules`, generated `dist`,
-scratch renders, raw recordings, conversation outputs and logs remain excluded.
-Participant/consent records and credentials must not be committed, even while
-the repository is private.
-
-This is a curated thesis source repository, not a complete laptop backup or a
-publicly deployed medical service. A separate backup remains necessary for
-irreplaceable data and model checkpoints.
+Keep an independent backup of irreplaceable research data, reports and weights.

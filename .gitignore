@@ -80,6 +80,18 @@ checkpoint-*/
 *.tgz
 
 # Retired material kept locally, but not part of the curated thesis repository
+# Thesis authoring belongs in the local report workspace, not the app source tree.
+*.doc
+*.docx
+*.pdf
+*.tex
+*.pptx
+/chapter4_rewrite_figures/
+/docs/Chapter_*/
+/docs/References/
+/docs/Thesis_Chapter_*
+/docs/SCREENSHOTS.md
+/scripts/generate_chapter4_rewrite_figures.py
 /docs/superpowers/
 /bert_symptom_model/
 /biobert_symptom_model/

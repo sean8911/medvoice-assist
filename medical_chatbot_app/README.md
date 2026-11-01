@@ -56,17 +56,17 @@ transcription. JSON is downloaded only when the user presses the download button
 ## Requirements
 
 - Python 3.10 or 3.11
-- Node.js 20 or newer
+- Node.js 20.19+ or 22.12+
 - pnpm
-- FFmpeg for browser-recorded WebM, MP3, or M4A decoding
+- Audio dependencies described in [Setup](../docs/SETUP.md); browser uploads use PyAV
 - CUDA-compatible PyTorch is optional; CPU inference is supported
 
 ## First setup
 
-From PowerShell:
+From the cloned repository root, with your Python environment active:
 
 ```powershell
-cd "C:\Year 3 Sem 3\Thesis\Denoise + Whisper\medical_chatbot_app"
+cd medical_chatbot_app
 .\setup.ps1
 ```
 
@@ -75,8 +75,9 @@ the React packages, and creates `frontend/dist`.
 
 ## Start the application
 
+From `medical_chatbot_app/`:
+
 ```powershell
-cd "C:\Year 3 Sem 3\Thesis\Denoise + Whisper\medical_chatbot_app"
 .\start_app.ps1
 ```
 
@@ -86,17 +87,16 @@ the server when its PowerShell session is closed. Server logs are written under
 
 ## Development mode
 
-Backend terminal:
+Backend terminal, from the repository root:
 
 ```powershell
-cd "C:\Year 3 Sem 3\Thesis\Denoise + Whisper"
 python -m uvicorn medical_chatbot_app.backend.app.main:app --reload
 ```
 
-Frontend terminal:
+Frontend terminal, also starting from the repository root:
 
 ```powershell
-cd "C:\Year 3 Sem 3\Thesis\Denoise + Whisper\medical_chatbot_app\frontend"
+cd medical_chatbot_app/frontend
 pnpm dev
 ```
 
@@ -114,8 +114,9 @@ Open `http://127.0.0.1:5173`. Vite forwards `/api` requests to FastAPI.
 
 ## Verification
 
+From the repository root:
+
 ```powershell
-cd "C:\Year 3 Sem 3\Thesis\Denoise + Whisper"
 python -m unittest discover -s medical_chatbot_app\backend\tests -t . -v
 
 cd medical_chatbot_app\frontend
